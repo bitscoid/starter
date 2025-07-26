@@ -1,6 +1,5 @@
 const { PrismaClient } = require("@prisma/client");
-const bcrypt = require("bcryptjs"); // ganti dari 'bcrypt' ke 'bcryptjs'
-
+const bcrypt = require("bcryptjs");
 const prisma = new PrismaClient();
 
 async function main() {
