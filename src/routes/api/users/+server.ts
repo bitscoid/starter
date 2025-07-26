@@ -7,6 +7,7 @@ import {
   getUserByEmail,
 } from "$lib/server/userService";
 import type { RequestHandler } from "./$types";
+import type { RegisterFormData } from "$lib/types";
 
 // GET: hanya admin yang boleh akses
 export const GET: RequestHandler = async (event) => {
@@ -19,7 +20,7 @@ export const GET: RequestHandler = async (event) => {
 export const POST: RequestHandler = async (event) => {
   requireAdmin(event); // validasi admin lebih awal
 
-  const body = await event.request.json();
+  const body: RegisterFormData = await event.request.json();
 
   const existing = await getUserByEmail(body.email);
   if (existing) {
